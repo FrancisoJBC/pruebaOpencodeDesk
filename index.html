@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DogTinder - Encuentra tu compi peludo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>DOG<span>TINDER</span></h1>
+        </header>
+
+        <div class="cards-container" id="cardsContainer">
+            <div class="card" id="currentCard">
+                <img id="dogImage" src="" alt="Perro">
+                <div class="card-info">
+                    <h2 id="dogName"></h2>
+                    <p id="dogBreed"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-nope" id="btnNope">NOPE</button>
+            <button class="btn btn-like" id="btnLike">LIKE</button>
+        </div>
+
+        <div class="matches" id="matchesSection" style="display:none;">
+            <h3>Tus Matches (<span id="matchCount">0</span>)</h3>
+            <div id="matchesList" class="matches-list"></div>
+        </div>
+
+        <button class="btn-matches" id="btnShowMatches">VER MATCHES</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header h1 span {
+    color: #ff6b6b;
+}
+
+.cards-container {
+    position: relative;
+    height: 450px;
+    margin-bottom: 20px;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden;
+    cursor: grab;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    user-select: none;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+
+.card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 15px;
+    background: white;
+}
+
+.card-info h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.card.swipe-left {
+    transform: translateX(-150%) rotate(-30deg);
+    opacity: 0;
+}
+
+.card.swipe-right {
+    transform: translateX(150%) rotate(30deg);
+    opacity: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-nope {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+    color: white;
+    box-shadow: 0 5px 15px rgba(238, 90, 90, 0.4);
+}
+
+.btn-like {
+    background: linear-gradient(135deg, #51cf66, #40c057);
+    color: white;
+    box-shadow: 0 5px 15px rgba(64, 192, 87, 0.4);
+}
+
+.btn-matches {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-matches:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.matches {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.matches h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.matches-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.match-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.match-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.match-item span {
+    color: #333;
+    font-weight: 500;
+}
+
+.no-cards {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 40px;
+}
+
+@keyframes likeAnimation {
+    0% { box-shadow: 0 0 0 0 rgba(64, 192, 87, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(64, 192, 87, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(64, 192, 87, 0); }
+}
+
+@keyframes nopeAnimation {
+    0% { box-shadow: 0 0 0 0 rgba(238, 90, 90, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(238, 90, 90, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(238, 90, 90, 0); }
+}
+
+.like-animation {
+    animation: likeAnimation 0.5s ease;
+}
+
+.nope-animation {
+    animation: nopeAnimation 0.5s ease;
+}
